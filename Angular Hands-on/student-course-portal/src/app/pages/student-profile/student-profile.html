@@ -1,0 +1,14 @@
+<section>
+  <h2>Student Profile</h2>
+  <p>Your enrolled courses are shown below.</p>
+
+  <ul *ngIf="enrolledCourses.length; else noEnrollment">
+    <li *ngFor="let course of enrolledCourses">{{ course.name }} ({{ course.code }})</li>
+  </ul>
+
+  <ng-template #noEnrollment>
+    <p>No enrolled courses yet.</p>
+  </ng-template>
+
+  <app-notification></app-notification>
+</section>
