@@ -1,0 +1,16 @@
+<div class="course-detail" *ngIf="course; else notFound">
+  <h2>{{ course.name }}</h2>
+  <p><strong>Code:</strong> {{ course.code }}</p>
+  <p><strong>Credits:</strong> {{ course.credits }}</p>
+  <p><strong>Grade Status:</strong> {{ course.gradeStatus }}</p>
+  <p *ngIf="searchTerm"><strong>Search Term:</strong> {{ searchTerm }}</p>
+
+  <h3>Enrolled Students</h3>
+  <p *ngIf="students.length === 0">No students enrolled yet.</p>
+  <ul *ngIf="students.length > 0">
+    <li *ngFor="let s of students">{{ s | json }}</li>
+  </ul>
+</div>
+<ng-template #notFound>
+  <p>Course not found.</p>
+</ng-template>
